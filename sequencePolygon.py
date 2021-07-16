@@ -23,14 +23,15 @@ class SequencePolygon:
   @property
   def get_circum_rad(self):
     return self._circum_rad
-
+  
+  # setitem doesn't work. We don't need to set any values to the sequences.
   @property
-  def __setitem__(self, index, value):
-    self._num_vertices[index] = value
+  def __setitem__(self, key, value):
+    self.get_num_edges[key] = value
   
   @property
-  def __getitem__(self, index):
-    return self._num_vertices[index]
+  def __getitem__(self, key):
+    return self.get_num_edges[key]
 
   @property
   def get_vertices(self):
